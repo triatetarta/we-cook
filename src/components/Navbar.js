@@ -22,7 +22,7 @@ const Navbar = () => {
 
           <ul className='navbar__menu'>
             <li onClick={() => history.push('/menu')}>Menu</li>
-            <li>How It Works</li>
+            <li onClick={() => history.push('/how')}>How It Works</li>
             <li className='navbar__menuAccount'>Log In</li>
           </ul>
         </div>

@@ -21,3 +21,21 @@ export const foodMenu = [
     description: `Whether it's Taco Tuesday, Cinco de Mayo, or a Friday night, these recipes are fun enough for a party, and easy enough to have a delish weeknight dinner. Once you have tried all of these, we've got 50 amazing tacos for you to work your way through.`,
   },
 ];
+
+export const howItWorks = [
+  {
+    id: 1,
+    title: 'Choose your plan',
+    description: `Easy-to-follow weekly, monthly, yearly plans`,
+  },
+  {
+    id: 2,
+    title: 'Create your daily cuisine',
+    description: `Choose which type of food you'll get each day`,
+  },
+  {
+    id: 3,
+    title: 'Select delivery hours',
+    description: `We offer flexible delivery hours based on your needs`,
+  },
+];

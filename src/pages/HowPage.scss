@@ -1,0 +1,29 @@
+@import '../variables';
+
+.how {
+  height: 100vh;
+  display: flex;
+
+  .how__container {
+    flex: 0.6;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    .how__title {
+      position: relative;
+      font-size: 4rem;
+
+      .how__box {
+        position: absolute;
+        width: 50%;
+        height: 2.5rem;
+        top: 0.6rem;
+        right: 0;
+        z-index: -1;
+        background-color: $orange;
+      }
+    }
+  }
+}
