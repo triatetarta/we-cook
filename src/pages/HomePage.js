@@ -3,6 +3,10 @@ import Sidemap from '../components/Sidemap';
 import './HomePage.scss';
 
 const HomePage = () => {
+  const handleSubmit = (e) => {
+    e.preventDefault();
+  };
+
   return (
     <div className='homepage'>
       <div className='homepage__container'>
@@ -11,7 +15,7 @@ const HomePage = () => {
           <div className='homepage__box'></div>
         </h1>
         <p className='homepage__subtitle'>
-          The world-wide healthy food subscription service, <br /> a
+          The world's healthiest food subscription service, <br /> a
           multicultular taste with just a Click.
         </p>
 
@@ -24,7 +28,9 @@ const HomePage = () => {
         </div>
         <form>
           <input type='text' placeholder='Enter Your Email' />
-          <button type='submit'>Start Here</button>
+          <button onClick={handleSubmit} type='submit'>
+            Start Here
+          </button>
         </form>
       </div>
 
