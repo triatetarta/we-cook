@@ -2,6 +2,7 @@ import React from 'react';
 import './HowPage.scss';
 import Sidemap from '../components/Sidemap';
 import { howItWorks } from '../data';
+import ArticleHow from '../components/ArticleHow';
 
 const HowPage = () => {
   return (
@@ -11,11 +12,15 @@ const HowPage = () => {
           How it works
           <div className='how__box'></div>
         </h1>
-        <div className='how__info'>
-          Choose your plan - Schedule cuisines - Delivered safely to your door
-        </div>
+        <p className='how__info'>
+          Choose your plan - Make a schedule - Delivered safely to your door
+        </p>
 
-        <div className='how__articles'>+</div>
+        <div className='how__articles'>
+          {howItWorks.map((item) => {
+            return <ArticleHow key={item.id} {...item} />;
+          })}
+        </div>
       </div>
 
       <Sidemap />

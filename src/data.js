@@ -25,17 +25,23 @@ export const foodMenu = [
 export const howItWorks = [
   {
     id: 1,
-    title: 'Choose your plan',
-    description: `Easy-to-follow weekly, monthly, yearly plans`,
+    title: 'WEEKLY',
+    description: `Easy-to-follow weekly plan`,
+    price: '70.00',
+    popular: false,
   },
   {
     id: 2,
-    title: 'Create your daily cuisine',
-    description: `Choose which type of food you'll get each day`,
+    title: 'MONTHLY',
+    description: `Get convenient daily delivery`,
+    price: '60.00',
+    popular: true,
   },
   {
     id: 3,
-    title: 'Select delivery hours',
-    description: `We offer flexible delivery hours based on your needs`,
+    title: 'YEARLY',
+    description: `Save up to 30% with yearly`,
+    price: '50.00',
+    popular: false,
   },
 ];
