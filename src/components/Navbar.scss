@@ -1,0 +1,57 @@
+@import '../variables';
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+
+  .navbar__container {
+    display: flex;
+    height: 6rem;
+
+    .navbar__leftContainer {
+      flex: 0.6;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 10rem;
+
+      .navbar__logoContainer {
+        display: flex;
+        align-items: center;
+        white-space: nowrap;
+        flex: 0.2;
+        img {
+          height: 2rem;
+          width: 2rem;
+        }
+        .navbar__logoText {
+          margin-left: 0.5rem;
+          font-weight: 800;
+          font-size: 2rem;
+        }
+      }
+      .navbar__menu {
+        flex: 0.8;
+        list-style: none;
+        display: flex;
+        justify-content: flex-end;
+
+        li {
+          margin-right: 1.3rem;
+          font-size: 1.2rem;
+          font-weight: 700;
+
+          &:first-child {
+            margin-left: 4rem;
+          }
+        }
+      }
+    }
+
+    .navbar__space {
+      flex: 0.4;
+    }
+  }
+}
