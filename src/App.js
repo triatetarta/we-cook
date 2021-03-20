@@ -4,6 +4,7 @@ import HomePage from './pages/HomePage';
 import Navbar from './components/Navbar';
 import './App.scss';
 import MenuPage from './pages/MenuPage';
+import Footer from './components/Footer';
 
 const App = () => {
   return (
@@ -18,6 +19,7 @@ const App = () => {
             <MenuPage />
           </Route>
         </Switch>
+        <Footer />
       </Router>
     </div>
   );

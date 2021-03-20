@@ -13,10 +13,21 @@
 
     .menu__containerTitle {
       font-size: 4rem;
+      position: relative;
+
+      .menu__box {
+        background-color: $orange;
+        width: 60%;
+        height: 2.5rem;
+        position: absolute;
+        top: 0.6rem;
+        right: 0;
+        z-index: -1;
+      }
     }
     .menu__containerSub {
       font-size: 1.5rem;
-      padding-bottom: 2rem;
+      padding-bottom: 3rem;
       color: $secondary-color;
     }
 

@@ -1,0 +1,39 @@
+@import '../variables';
+
+.footer {
+  min-height: 3rem;
+  background-color: $footer;
+  color: $secondary-color;
+  padding: 2rem 2rem;
+
+  .footer__container {
+    display: flex;
+
+    .footer__left {
+      flex: 0.6;
+      display: flex;
+      align-items: center;
+      justify-content: space-evenly;
+
+      ul {
+        list-style: none;
+        display: flex;
+
+        li {
+          margin-right: 1rem;
+        }
+      }
+    }
+
+    .footer__right {
+      flex: 0.4;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      p {
+        margin-left: 1rem;
+      }
+    }
+  }
+}

@@ -7,7 +7,10 @@ const MenuPage = () => {
   return (
     <div className='menu'>
       <div className='menu__container'>
-        <h1 className='menu__containerTitle'>Our Menu</h1>
+        <h1 className='menu__containerTitle'>
+          Our Menu
+          <div className='menu__box'></div>
+        </h1>
         <p className='menu__containerSub'>
           Discover the flavors that suit your personal taste:
         </p>
