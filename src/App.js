@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import HomePage from './pages/HomePage';
 import Navbar from './components/Navbar';
@@ -9,10 +9,16 @@ import './App.scss';
 import LoginPage from './pages/LoginPage';
 
 const App = () => {
+  const [user, setUser] = useState(false);
+
+  const handleSignOut = () => {
+    setUser(false);
+  };
+
   return (
     <div className='app'>
       <Router>
-        <Navbar />
+        <Navbar user={user} handleSignOut={handleSignOut} />
         <Switch>
           <Route exact path='/'>
             <HomePage />
@@ -24,7 +30,7 @@ const App = () => {
             <HowPage />
           </Route>
           <Route exact path='/login'>
-            <LoginPage />
+            <LoginPage user={user} setUser={setUser} />
           </Route>
         </Switch>
         <Footer />

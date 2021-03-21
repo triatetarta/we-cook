@@ -1,15 +1,15 @@
 import React from 'react';
+import Account from '../components/Account';
 import Sidemap from '../components/Sidemap';
-import SignIn from '../components/SignIn';
+import SignForm from '../components/SignForm';
 import './LoginPage.scss';
 
-const LoginPage = () => {
+const LoginPage = ({ user, setUser }) => {
   return (
     <div className='login'>
       <div className='login__container'>
-        <SignIn />
+        {user ? <Account /> : <SignForm user={user} setUser={setUser} />}
       </div>
-
       <Sidemap />
     </div>
   );

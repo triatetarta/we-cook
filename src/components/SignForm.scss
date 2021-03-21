@@ -1,17 +1,17 @@
 @import '../variables';
 
-.signIn {
+.signForm {
   width: 50vw;
   max-width: 400px;
 
-  .signIn__container {
+  .signForm__container {
     border: 1px solid $orange;
     padding: 4rem 1.5rem;
     display: flex;
     flex-direction: column;
     align-items: center;
 
-    .signIn__title {
+    .signForm__title {
       padding-bottom: 1.5rem;
     }
 
@@ -22,7 +22,7 @@
 
       input {
         margin-bottom: 1rem;
-        padding: 0.5rem 0.3rem;
+        padding: 0.5rem 0.5rem;
         font-size: 1rem;
         border: none;
         outline: none;
@@ -41,8 +41,9 @@
         cursor: pointer;
       }
     }
-    .signIn__bottomText {
+    .signForm__bottomText {
       margin-top: 0.9rem;
+      color: $secondary-color;
 
       span {
         color: $orange;
