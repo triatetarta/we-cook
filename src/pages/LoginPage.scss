@@ -1,0 +1,12 @@
+.login {
+  height: 100vh;
+  display: flex;
+
+  .login__container {
+    height: 100%;
+    flex: 0.6;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}

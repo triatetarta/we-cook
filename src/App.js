@@ -6,6 +6,7 @@ import MenuPage from './pages/MenuPage';
 import Footer from './components/Footer';
 import HowPage from './pages/HowPage';
 import './App.scss';
+import LoginPage from './pages/LoginPage';
 
 const App = () => {
   return (
@@ -21,6 +22,9 @@ const App = () => {
           </Route>
           <Route exact path='/how'>
             <HowPage />
+          </Route>
+          <Route exact path='/login'>
+            <LoginPage />
           </Route>
         </Switch>
         <Footer />

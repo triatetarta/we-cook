@@ -1,0 +1,53 @@
+@import '../variables';
+
+.signIn {
+  width: 50vw;
+  max-width: 400px;
+
+  .signIn__container {
+    border: 1px solid $orange;
+    padding: 4rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .signIn__title {
+      padding-bottom: 1.5rem;
+    }
+
+    form {
+      width: 90%;
+      display: flex;
+      flex-direction: column;
+
+      input {
+        margin-bottom: 1rem;
+        padding: 0.5rem 0.3rem;
+        font-size: 1rem;
+        border: none;
+        outline: none;
+        background-color: rgb(233, 233, 233);
+      }
+
+      .login__button {
+        padding: 0.5rem 0;
+        font-size: 1rem;
+        background: none;
+        border: none;
+        outline: none;
+        background-color: $orange;
+        color: $background-color;
+        font-weight: 600;
+        cursor: pointer;
+      }
+    }
+    .signIn__bottomText {
+      margin-top: 0.9rem;
+
+      span {
+        color: $orange;
+        cursor: pointer;
+      }
+    }
+  }
+}

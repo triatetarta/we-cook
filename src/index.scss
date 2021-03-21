@@ -1,5 +1,17 @@
 @import 'variables';
 
+html {
+  &::-webkit-scrollbar {
+    width: 0.7rem;
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: $orange;
+  }
+  &::-webkit-scrollbar-track {
+    background: $background-color;
+  }
+}
+
 * {
   margin: 0;
   padding: 0;

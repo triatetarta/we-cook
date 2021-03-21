@@ -6,7 +6,7 @@ const Sidemap = () => {
     <div
       className='sidemap'
       style={{
-        backgroundImage: `url('${process.env.PUBLIC_URL + '/assets/map.jpg'}')`,
+        backgroundImage: `url('${process.env.PUBLIC_URL + '/assets/map.png'}')`,
         backgroundSize: 'cover',
         backgroundPosition: 'center center',
       }}
