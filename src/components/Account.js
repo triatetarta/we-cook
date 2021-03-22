@@ -1,11 +1,12 @@
 import React from 'react';
 import './Account.scss';
+import Plans from './Plans';
 
 const Account = () => {
   return (
     <div className='account'>
       <div className='account__container'>
-        <h3 className='account__title'>Edit Profile:</h3>
+        <h3 className='account__title'>Edit Profile</h3>
         <div className='account__info'>
           <img
             src={process.env.PUBLIC_URL + '/assets/wecook.png'}
@@ -17,7 +18,7 @@ const Account = () => {
             </h4>
             <div className='account__plans'>
               <h3>Plans</h3>
-              {/* Plans Component */}
+              <Plans />
 
               <button className='account__signoutButton'>Sign Out</button>
             </div>
