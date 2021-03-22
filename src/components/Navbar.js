@@ -1,9 +1,17 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom';
+import { userLogout } from '../actions/userActions';
+import { useSelector, useDispatch } from 'react-redux';
 import './Navbar.scss';
 
-const Navbar = ({ user, handleSignOut }) => {
+const Navbar = () => {
   const history = useHistory();
+
+  const { user } = useSelector((state) => state.user);
+
+  console.log(user);
+
+  const dispatch = useDispatch();
 
   return (
     <nav className='navbar'>
@@ -39,7 +47,7 @@ const Navbar = ({ user, handleSignOut }) => {
                 Account
                 <ul className='navbar__menuDropdown'>
                   <li onClick={() => history.push('/login')}>Account</li>
-                  <li onClick={handleSignOut}>Sign Out</li>
+                  <li onClick={() => dispatch(userLogout())}>Sign Out</li>
                 </ul>
               </li>
             )}

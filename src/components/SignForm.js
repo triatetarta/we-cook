@@ -1,16 +1,20 @@
 import React, { useState } from 'react';
+import { userLogout, userLogin } from '../actions/userActions';
+import { useSelector, useDispatch } from 'react-redux';
 import './SignForm.scss';
 
-const SignIn = ({ user, setUser }) => {
+const SignIn = () => {
+  const { user } = useSelector((state) => state.user);
+  const dispatch = useDispatch();
   const [signUp, setSignUp] = useState(false);
 
   const handleSign = (e) => {
     e.preventDefault();
 
     if (!user) {
-      setUser(true);
+      dispatch(userLogin());
     } else {
-      setUser(false);
+      dispatch(userLogout());
     }
   };
 

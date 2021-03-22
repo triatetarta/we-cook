@@ -7,6 +7,8 @@ import Footer from './components/Footer';
 import HowPage from './pages/HowPage';
 import './App.scss';
 import LoginPage from './pages/LoginPage';
+import { Provider } from 'react-redux';
+import store from './store';
 
 const App = () => {
   const [user, setUser] = useState(false);
@@ -16,7 +18,7 @@ const App = () => {
   };
 
   return (
-    <div className='app'>
+    <Provider store={store}>
       <Router>
         <Navbar user={user} handleSignOut={handleSignOut} />
         <Switch>
@@ -35,7 +37,7 @@ const App = () => {
         </Switch>
         <Footer />
       </Router>
-    </div>
+    </Provider>
   );
 };
 
