@@ -1,7 +1,8 @@
 import React from 'react';
+import CheckIcon from '@material-ui/icons/Check';
 import './ArticleHow.scss';
 
-const ArticleHow = ({ title, description, price, popular }) => {
+const ArticleHow = ({ title, description, price, popular, points }) => {
   return (
     <article className={`${popular ? 'how__article popular' : 'how__article'}`}>
       <div className='how__boxTop'>
@@ -18,6 +19,20 @@ const ArticleHow = ({ title, description, price, popular }) => {
           {price}
         </p>
         <span className='how__articleWeek'>WEEK</span>
+      </div>
+
+      <div className='how__articlePoints'>
+        <ul className='how__pointsUl'>
+          {points.map((p) => {
+            const { id, point } = p;
+
+            return (
+              <li className='how__pointLi' key={id}>
+                <CheckIcon /> {point}
+              </li>
+            );
+          })}
+        </ul>
       </div>
 
       <button className='how__button'>Subscribe</button>

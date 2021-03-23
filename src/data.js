@@ -28,6 +28,11 @@ export const howItWorks = [
     title: 'WEEKLY',
     description: `Easy-to-follow weekly plan`,
     price: '70.00',
+    points: [
+      { id: 1, point: 'Daily delivery' },
+      { id: 2, point: 'Essential Starter Pack' },
+      { id: 3, point: 'Easy to Extend' },
+    ],
     popular: false,
   },
   {
@@ -35,6 +40,11 @@ export const howItWorks = [
     title: 'MONTHLY',
     description: `Get convenient daily delivery`,
     price: '60.00',
+    points: [
+      { id: 1, point: 'Flexible delivery' },
+      { id: 2, point: 'Most Popular plan' },
+      { id: 3, point: 'Save up to 10%' },
+    ],
     popular: true,
   },
   {
@@ -42,6 +52,11 @@ export const howItWorks = [
     title: 'YEARLY',
     description: `Save up to 30% with yearly`,
     price: '50.00',
+    points: [
+      { id: 1, point: 'Value for Money' },
+      { id: 2, point: 'Seasonal Options' },
+      { id: 3, point: 'Save up to 30%' },
+    ],
     popular: false,
   },
 ];
