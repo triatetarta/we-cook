@@ -1,27 +1,27 @@
-import React, { useState } from 'react';
-import { userLogout, userLogin } from '../actions/userActions';
+import React, { useRef, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import './SignForm.scss';
 
 const SignIn = () => {
-  const { user } = useSelector((state) => state.user);
+  const user = false;
+
   const dispatch = useDispatch();
   const [signUp, setSignUp] = useState(false);
+  const [error, setError] = useState('');
+  const emailRef = useRef(null);
+  const passwordRef = useRef(null);
+  const passwordConfirmRef = useRef(null);
 
   const handleSign = (e) => {
     e.preventDefault();
-
-    if (!user) {
-      dispatch(userLogin());
-    } else {
-      dispatch(userLogout());
-    }
   };
 
   const handleSignUp = (e) => {
     e.preventDefault();
+  };
 
-    setSignUp(true);
+  const handleSignUpSubmit = (e) => {
+    e.preventDefault();
   };
 
   return (
@@ -30,8 +30,12 @@ const SignIn = () => {
         <div className='signForm__container'>
           <h1 className='signForm__title'>{user ? 'Sign Out' : 'Sign In'}</h1>
           <form>
-            <input type='text' placeholder='Enter Email' />
-            <input type='password' placeholder='Enter Password' />
+            <input ref={emailRef} type='text' placeholder='Enter Email' />
+            <input
+              ref={passwordRef}
+              type='password'
+              placeholder='Enter Password'
+            />
             <button
               type='submit'
               onClick={handleSign}
@@ -49,12 +53,29 @@ const SignIn = () => {
       ) : (
         <div className='signForm__container'>
           <h1 className='signForm__title'>Sign Up</h1>
+          {error && <p>{error}</p>}
           <form>
-            <input type='text' placeholder='Enter Email' />
-            <input type='password' placeholder='Enter Password' />
+            <input
+              ref={emailRef}
+              type='text'
+              placeholder='Enter Email'
+              required
+            />
+            <input
+              ref={passwordRef}
+              type='password'
+              placeholder='Enter Password'
+              required
+            />
+            <input
+              ref={passwordConfirmRef}
+              type='password'
+              placeholder='Confirm Password'
+              required
+            />
             <button
               type='submit'
-              onClick={handleSign}
+              onClick={handleSignUpSubmit}
               className='login__button'
             >
               Sign Up
