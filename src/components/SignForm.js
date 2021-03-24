@@ -3,14 +3,12 @@ import { useSelector, useDispatch } from 'react-redux';
 import './SignForm.scss';
 
 const SignIn = () => {
-  const user = false;
-
+  const { isAuthenticated, loginError } = useSelector((state) => state.auth);
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [passwordConfirm, setPasswordConfirm] = useState('');
   const dispatch = useDispatch();
   const [signUp, setSignUp] = useState(false);
-  const [error, setError] = useState('');
-  const emailRef = useRef(null);
-  const passwordRef = useRef(null);
-  const passwordConfirmRef = useRef(null);
 
   const handleSign = (e) => {
     e.preventDefault();
@@ -26,13 +24,21 @@ const SignIn = () => {
 
   return (
     <div className='signForm'>
-      {!signUp ? (
+      {!isAuthenticated && !signUp ? (
         <div className='signForm__container'>
-          <h1 className='signForm__title'>{user ? 'Sign Out' : 'Sign In'}</h1>
+          <h1 className='signForm__title'>
+            {isAuthenticated ? 'Sign Out' : 'Sign In'}
+          </h1>
           <form>
-            <input ref={emailRef} type='text' placeholder='Enter Email' />
             <input
-              ref={passwordRef}
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              type='text'
+              placeholder='Enter Email'
+            />
+            <input
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
               type='password'
               placeholder='Enter Password'
             />
@@ -41,34 +47,38 @@ const SignIn = () => {
               onClick={handleSign}
               className='login__button'
             >
-              {user ? 'Sign Out' : 'Sign In'}
+              {isAuthenticated ? 'Sign Out' : 'Sign In'}
             </button>
           </form>
-          {!user && (
+          {!isAuthenticated && (
             <p className='signForm__bottomText'>
-              Don't have an account? <span onClick={handleSignUp}>Sign Up</span>
+              Don't have an account?{' '}
+              <span onClick={() => setSignUp(true)}>Sign Up</span>
             </p>
           )}
         </div>
       ) : (
         <div className='signForm__container'>
           <h1 className='signForm__title'>Sign Up</h1>
-          {error && <p>{error}</p>}
+          {loginError && <p>{loginError}</p>}
           <form>
             <input
-              ref={emailRef}
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
               type='text'
               placeholder='Enter Email'
               required
             />
             <input
-              ref={passwordRef}
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
               type='password'
               placeholder='Enter Password'
               required
             />
             <input
-              ref={passwordConfirmRef}
+              value={passwordConfirm}
+              onChange={(e) => setPasswordConfirm(e.target.value)}
               type='password'
               placeholder='Confirm Password'
               required
