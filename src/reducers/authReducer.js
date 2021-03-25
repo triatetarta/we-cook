@@ -7,10 +7,15 @@ import {
   LOGOUT_SUCCESS,
   VERIFY_REQUEST,
   VERIFY_SUCCESS,
+  SIGNUP_FAILURE,
+  SIGNUP_REQUEST,
+  SIGNUP_SUCCESS,
 } from '../actions/types';
 
 const initialState = {
   isLoggingIn: false,
+  isSigningUp: false,
+  signupError: false,
   isLoggingOut: false,
   isVerifying: false,
   loginError: false,
@@ -21,6 +26,26 @@ const initialState = {
 
 const authReducer = (state = initialState, action) => {
   switch (action.type) {
+    case SIGNUP_REQUEST:
+      return {
+        ...state,
+        isSigningUp: true,
+        signupError: false,
+      };
+    case SIGNUP_SUCCESS:
+      return {
+        ...state,
+        isSigningUp: false,
+        signupError: false,
+        user: action.user,
+      };
+    case SIGNUP_FAILURE:
+      return {
+        ...state,
+        isSigningUp: false,
+        isAuthenticated: false,
+        signupError: true,
+      };
     case LOGIN_REQUEST:
       return {
         ...state,

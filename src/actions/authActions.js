@@ -8,7 +8,28 @@ import {
   LOGOUT_SUCCESS,
   VERIFY_REQUEST,
   VERIFY_SUCCESS,
+  SIGNUP_FAILURE,
+  SIGNUP_REQUEST,
+  SIGNUP_SUCCESS,
 } from './types';
+
+const requestSignUp = () => {
+  return {
+    type: SIGNUP_REQUEST,
+  };
+};
+
+const receiveSignUp = () => {
+  return {
+    type: SIGNUP_SUCCESS,
+  };
+};
+
+const signUpError = () => {
+  return {
+    type: SIGNUP_FAILURE,
+  };
+};
 
 const requestLogin = () => {
   return {
@@ -69,6 +90,19 @@ export const loginUser = (email, password) => (dispatch) => {
     })
     .catch((error) => {
       dispatch(loginError());
+    });
+};
+
+export const signUpUser = (email, password) => (dispatch) => {
+  dispatch(requestSignUp());
+  firebaseApp
+    .auth()
+    .createUserWithEmailAndPassword(email, password)
+    .then((user) => {
+      dispatch(receiveSignUp(user));
+    })
+    .catch((error) => {
+      dispatch(signUpError());
     });
 };
 

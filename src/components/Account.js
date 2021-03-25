@@ -1,8 +1,12 @@
 import React from 'react';
+import { useDispatch } from 'react-redux';
+import { logoutUser } from '../actions/authActions';
 import './Account.scss';
 import Plans from './Plans';
 
 const Account = () => {
+  const dispatch = useDispatch();
+
   return (
     <div className='account'>
       <div className='account__container'>
@@ -20,7 +24,12 @@ const Account = () => {
               <h3>Plans</h3>
               <Plans />
 
-              <button className='account__signoutButton'>Sign Out</button>
+              <button
+                onClick={() => dispatch(logoutUser())}
+                className='account__signoutButton'
+              >
+                Sign Out
+              </button>
             </div>
           </div>
         </div>

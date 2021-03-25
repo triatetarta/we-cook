@@ -1,5 +1,6 @@
-import React, { useRef, useState } from 'react';
+import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import { loginUser, signUpUser } from '../actions/authActions';
 import './SignForm.scss';
 
 const SignIn = () => {
@@ -7,19 +8,19 @@ const SignIn = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [passwordConfirm, setPasswordConfirm] = useState('');
-  const dispatch = useDispatch();
   const [signUp, setSignUp] = useState(false);
+  const dispatch = useDispatch();
 
-  const handleSign = (e) => {
+  const handleSignIn = (e) => {
     e.preventDefault();
+
+    dispatch(loginUser(email, password));
   };
 
   const handleSignUp = (e) => {
     e.preventDefault();
-  };
 
-  const handleSignUpSubmit = (e) => {
-    e.preventDefault();
+    dispatch(signUpUser(email, password));
   };
 
   return (
@@ -44,7 +45,7 @@ const SignIn = () => {
             />
             <button
               type='submit'
-              onClick={handleSign}
+              onClick={handleSignIn}
               className='login__button'
             >
               {isAuthenticated ? 'Sign Out' : 'Sign In'}
@@ -85,7 +86,7 @@ const SignIn = () => {
             />
             <button
               type='submit'
-              onClick={handleSignUpSubmit}
+              onClick={handleSignUp}
               className='login__button'
             >
               Sign Up
