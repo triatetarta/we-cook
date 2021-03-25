@@ -1,14 +1,18 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { loginUser, signUpUser } from '../actions/authActions';
+import ErrorIcon from '@material-ui/icons/Error';
 import './SignForm.scss';
 
 const SignIn = () => {
-  const { isAuthenticated, loginError } = useSelector((state) => state.auth);
+  const { isAuthenticated, loginError, signupError } = useSelector(
+    (state) => state.auth
+  );
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [passwordConfirm, setPasswordConfirm] = useState('');
   const [signUp, setSignUp] = useState(false);
+  const [matchError, setMatchError] = useState('');
   const dispatch = useDispatch();
 
   const handleSignIn = (e) => {
@@ -20,6 +24,10 @@ const SignIn = () => {
   const handleSignUp = (e) => {
     e.preventDefault();
 
+    if (password !== passwordConfirm)
+      return setMatchError('Passwords do not match, try again');
+
+    setMatchError('');
     dispatch(signUpUser(email, password));
   };
 
@@ -30,6 +38,11 @@ const SignIn = () => {
           <h1 className='signForm__title'>
             {isAuthenticated ? 'Sign Out' : 'Sign In'}
           </h1>
+          {loginError && (
+            <p className='signForm__error'>
+              <ErrorIcon /> Something went wrong, try again!
+            </p>
+          )}
           <form>
             <input
               value={email}
@@ -61,7 +74,16 @@ const SignIn = () => {
       ) : (
         <div className='signForm__container'>
           <h1 className='signForm__title'>Sign Up</h1>
-          {loginError && <p>{loginError}</p>}
+          {signupError && (
+            <p className='signForm__error'>
+              <ErrorIcon /> Something went wrong, try again!
+            </p>
+          )}
+          {matchError && (
+            <p className='signForm__error'>
+              <ErrorIcon /> {matchError}
+            </p>
+          )}
           <form>
             <input
               value={email}

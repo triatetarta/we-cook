@@ -1,10 +1,12 @@
 import React from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { logoutUser } from '../actions/authActions';
+import ErrorIcon from '@material-ui/icons/Error';
 import './Account.scss';
 import Plans from './Plans';
 
 const Account = () => {
+  const { logoutError } = useSelector((state) => state.auth);
   const dispatch = useDispatch();
 
   return (
@@ -17,6 +19,12 @@ const Account = () => {
             alt='profile pic'
           />
           <div className='account__details'>
+            {logoutError && (
+              <p className='account__detailsError'>
+                <ErrorIcon />
+                Couldn't sign you out, try again!
+              </p>
+            )}
             <h4 className='account__detailsTitle'>
               threequartersdev@gmail.com
             </h4>
